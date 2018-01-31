@@ -136,7 +136,9 @@
                             this.timeout = setTimeout(() => {
                                 this.bgColor =  '#' + this.data[id].color; 
                             }, 200);
-                            window.navigator.vibrate([0, 40, 30]);
+                            if (window.navigator.vibrate) {
+                                window.navigator.vibrate([0, 40, 30]);
+                            }
                         }
                         current.classList.add('active');
                         
