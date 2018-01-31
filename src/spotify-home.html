@@ -1,0 +1,109 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+
+<dom-module id="spotify-home">
+    <template>
+        <style>
+            :host {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: #201459;
+                z-index: 9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .logo {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            iron-image {
+                width: 168px;
+                height: 168px;
+                margin-bottom: 16px;
+            }
+
+            h1 {
+                color: white;
+                font-weight: 400;
+                margin: 0;
+                font-size: 32px;
+            }
+
+            h2 {
+                color: #a72d69;
+                margin: 8px 0;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .btn {
+                background-color: #3cb939;
+                padding: 14px 24px;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 600;
+                border-radius: 28px;
+                font-size: 14px;
+                min-width: 120px;
+                text-align: center;
+                margin-bottom: 12px;
+                cursor: pointer;
+            }
+
+            .btn.github {
+                background-color: #116ea9;
+                margin-bottom: 48px;
+            } 
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+
+        <div class="logo">
+            <iron-image src="/images/logo.png" sizing="cover"></iron-image>
+            <h1>Stations</h1>
+            <h2>NOT by Spotify</h2>
+        </div>
+
+        <div class="btn" on-tap="hidePage">Get Started</div>
+        <a target="_blank" href="https://github.com/limhenry/spotify-stations"><div class="btn github">GitHub</div></a>
+
+    </template>
+
+    <script>
+
+        class SpotifyHome extends Polymer.GestureEventListeners(Polymer.Element) {
+            static get is() { return 'spotify-home'; }
+            static get properties() {
+                return {
+                    bgColor: {
+                        reflectToAttribute: true,
+                        notify: true
+                    }
+                };
+            }
+
+            hidePage() {
+                this.bgColor = '#226699';
+                this.style.display = 'none';
+                
+            }
+
+            ready() {
+                super.ready();
+            }
+        }
+
+        window.customElements.define(SpotifyHome.is, SpotifyHome);
+    </script>
+</dom-module>

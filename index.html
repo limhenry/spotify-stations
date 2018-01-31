@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Spotify Stations</title>
+    <meta name="description" content="Spotify Stations">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="/src/spotify-stations-app.html">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32" />
+
+    <meta name="theme-color" content="#201459">
+
+    <script>
+    
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+
+  </script>
+
+    <style>
+      html, body {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <spotify-stations-app></spotify-stations-app>
+  </body>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57741199-10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-57741199-10');
+  </script>
+
+</html>

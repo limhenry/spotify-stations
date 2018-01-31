@@ -1,0 +1,97 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+
+<dom-module id="spotify-control">
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 0 16px 12px 16px;
+            }
+
+            .bar {
+                height: 5px;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.5);
+                margin-bottom: 12px;
+                position: relative;
+            }
+
+            .progress {
+                background-color: #ffffff;
+                position: absolute;
+                animation: progress 100s linear infinite;
+                height: 100%;
+            }
+
+            @keyframes progress {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+
+            .info {
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .info .detail {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .info .title {
+                color: white;
+                margin-bottom: 2px;
+            }
+
+            .info .artist {
+                opacity: 0.8;
+            }
+
+            .info paper-icon-button {
+                color: white;
+            }
+
+            .info iron-image {
+                height: 64px;
+                width: 64px;
+                margin-right: 8px;
+            }
+        </style>
+        <div class="bar">
+            <div class="progress"></div>
+        </div>
+        <div class="info">
+            <iron-image src="images/coldplay.jpg" sizing="cover"></iron-image>
+            <div class="detail">
+                <div class="title">All I Can Think About Is You</div>
+                <div class="artist">Coldplay</div>
+            </div>
+            <div class="control">
+                <paper-icon-button icon="spotify-icons:favorite-border"></paper-icon-button>
+                <paper-icon-button icon="spotify-icons:pause"></paper-icon-button>
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+
+        class SpotifyControl extends Polymer.Element {
+            static get is() { return 'spotify-control'; }
+
+            ready() {
+                super.ready();
+            }
+        }
+
+        window.customElements.define(SpotifyControl.is, SpotifyControl);
+    </script>
+</dom-module>

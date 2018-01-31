@@ -1,0 +1,16 @@
+{
+  "name": "Spotify Stations",
+  "short_name": "Stations",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#201459",
+  "background_color": "#201459",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/logo_manifest.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

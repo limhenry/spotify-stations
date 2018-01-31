@@ -1,0 +1,83 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="spotify-home.html">
+<link rel="import" href="spotify-list.html">
+<link rel="import" href="spotify-control.html">
+<link rel="import" href="spotify-icons.html">
+
+<dom-module id="spotify-stations-app">
+  <template>
+    <style>
+      :host {
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 63.529vh;
+        max-width: 63.529vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background-color: var(--spotify-background-color);
+        overflow: hidden;
+      }
+      paper-icon-button {
+        width: 56px;
+        height: 56px;
+        background-color: #ffffff61;
+        border-radius: 50%;
+        padding: 14px;
+        color: white;
+        margin: 16px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 8;
+      }
+    </style>
+    <paper-icon-button icon="spotify-icons:menu" on-tap="showHome"></paper-icon-button>
+    <spotify-home bg-color="{{color}}"></spotify-home>
+    <spotify-list bg-color="{{color}}"></spotify-list>
+    <spotify-control></spotify-control>
+  </template>
+
+  <script>
+
+    Polymer.setPassiveTouchGestures(true);
+
+    class SpotifyStationsApp extends Polymer.GestureEventListeners(Polymer.Element) {
+      static get is() { return 'spotify-stations-app'; }
+      static get properties() {
+        return {
+          color: {
+            type: String,
+            value: '#201459'
+          }
+        };
+      }
+
+      static get observers() {
+        return [
+          '_onColorChanged(color)',
+        ];
+      }
+
+      showHome() {
+        this.shadowRoot.querySelector('spotify-home').style.display = 'flex';
+        let metaThemeColor = document.querySelector("meta[name=theme-color]");
+        metaThemeColor.setAttribute("content", '#201459');
+      }
+
+      _onColorChanged(color) {
+        this.updateStyles({
+          '--spotify-background-color': color,
+        });
+        let metaThemeColor = document.querySelector("meta[name=theme-color]");
+        metaThemeColor.setAttribute("content", color);
+      }
+    }
+
+    window.customElements.define(SpotifyStationsApp.is, SpotifyStationsApp);
+  </script>
+</dom-module>
