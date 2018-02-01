@@ -127,9 +127,6 @@
                     let pointer = this.shadowRoot.querySelector('.pointer');
                     scroller.addEventListener('scroll', e => {
                         let id = Math.round(e.target.scrollTop / 80);
-                        this.data.forEach((item, index) => {
-                            this.shadowRoot.querySelector('#s' + index).classList.remove('active');
-                        })
                         let current = this.shadowRoot.querySelector('#s' + id);
                         if (!current.classList.contains('active')) {
                             clearTimeout(this.timeout);
@@ -137,19 +134,23 @@
                                 this.bgColor =  '#' + this.data[id].color; 
                             }, 200);
                             if (window.navigator.vibrate) {
-                                window.navigator.vibrate([0, 40, 30]);
+                                window.navigator.vibrate([0, 15, 25]);
                             }
                         }
                         current.classList.add('active');
-                        
+                        this.data.forEach((item, index) => {
+                            if (index !== id) {
+                                this.shadowRoot.querySelector('#s' + index).classList.remove('active');
+                            }
+                        });
                     })
                     this.delta = scroller.scrollTop;
 
                     let height = window.innerHeight / 2 - 15;
-
+                    
                     this.shadowRoot.querySelector('.pointer').style.top = height + 'px';
                     this.shadowRoot.querySelector('.top_list').style.height = (height - 38) + 'px';
-                    this.shadowRoot.querySelector('.bottom_list').style.height = (height - 53) + 'px';
+                    this.shadowRoot.querySelector('.bottom_list').style.height = (height - 113) + 'px';
                 })
             }
         }

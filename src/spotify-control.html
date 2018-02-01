@@ -44,15 +44,22 @@
                 display: flex;
                 flex-direction: column;
                 flex: 1;
+                overflow: hidden;
             }
 
             .info .title {
                 color: white;
                 margin-bottom: 2px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden
             }
 
             .info .artist {
                 opacity: 0.8;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden
             }
 
             .info paper-icon-button {
