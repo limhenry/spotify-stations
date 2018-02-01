@@ -6,7 +6,7 @@ Trying to recreate the UI of [Spotify Stations](https://play.google.com/store/ap
 
 ## Techs/Features
  - Polymer (Web Components FTW)
- - Vibrate when scrolling the list (C)
+ - Vibrate when scrolling the list
  - It doesn't play any music
  - It's not the real Spotify Stations app
 
