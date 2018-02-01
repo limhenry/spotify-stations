@@ -5,9 +5,15 @@
     <template>
         <style>
             :host {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex: 1;
-                align-items: center;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1;
+                        flex: 1;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 overflow: hidden;
                 height: 100%;
             }
@@ -20,7 +26,9 @@
                 background-color: black;
                 width: 20px;
                 height: 20px;
-                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
                 margin-left: -10px;
                 position: absolute;
             }
@@ -38,16 +46,24 @@
                 padding: 12px 24px;
                 color: rgba(0, 0, 0, .5);
                 font-weight: 700;
-                transform: scale(1);
+                -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                        transform: scale(1);
                 white-space: nowrap;
-                transform-origin: center left;
+                -webkit-transform-origin: center left;
+                    -ms-transform-origin: center left;
+                        transform-origin: center left;
+                -webkit-transition: all 40ms ease-in-out;
+                -o-transition: all 40ms ease-in-out;
                 transition: all 40ms ease-in-out;
             }
 
             h2.active {
                 color: rgba(255, 255, 255, 1);
                 font-size: 48px;
-                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                    -ms-transform: scale(1.2);
+                        transform: scale(1.2);
                 margin-left: -6px;
             }
         </style>
@@ -147,7 +163,7 @@
                     this.delta = scroller.scrollTop;
 
                     let height = window.innerHeight / 2 - 15;
-                    
+
                     this.shadowRoot.querySelector('.pointer').style.top = height + 'px';
                     this.shadowRoot.querySelector('.top_list').style.height = (height - 38) + 'px';
                     this.shadowRoot.querySelector('.bottom_list').style.height = (height - 113) + 'px';

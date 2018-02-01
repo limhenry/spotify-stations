@@ -23,6 +23,7 @@
         overflow: hidden;
         transition: background-color 100ms ease-in-out;
       }
+
       paper-icon-button {
         width: 56px;
         height: 56px;
@@ -35,6 +36,9 @@
         right: 0;
         top: 0;
         z-index: 8;
+      }
+      spotify-home[hidden] {
+        display: none;
       }
     </style>
     <paper-icon-button icon="spotify-icons:menu" on-tap="showHome"></paper-icon-button>
@@ -65,7 +69,7 @@
       }
 
       showHome() {
-        this.shadowRoot.querySelector('spotify-home').style.display = 'flex';
+        this.shadowRoot.querySelector('spotify-home').hidden = false;
         let metaThemeColor = document.querySelector("meta[name=theme-color]");
         metaThemeColor.setAttribute("content", '#201459');
       }

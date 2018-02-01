@@ -20,8 +20,18 @@
             .progress {
                 background-color: #ffffff;
                 position: absolute;
-                animation: progress 100s linear infinite;
+                -webkit-animation: progress 100s linear infinite;
+                        animation: progress 100s linear infinite;
                 height: 100%;
+            }
+
+            @-webkit-keyframes progress {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
             }
 
             @keyframes progress {
@@ -34,30 +44,43 @@
             }
 
             .info {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                align-items: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 font-weight: 700;
                 font-size: 14px;
             }
 
             .info .detail {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
-                flex: 1;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1;
+                        flex: 1;
                 overflow: hidden;
             }
 
             .info .title {
                 color: white;
                 margin-bottom: 2px;
-                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                   text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden
             }
 
             .info .artist {
                 opacity: 0.8;
-                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                   text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden
             }
